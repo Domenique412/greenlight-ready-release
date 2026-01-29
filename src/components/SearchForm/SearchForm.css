@@ -1,0 +1,30 @@
+/* src/components/SearchForm/SearchForm.css */
+.search {
+  margin: 0 0 16px;
+}
+
+.search__label {
+  display: block;
+  margin: 0 0 8px;
+}
+
+.search__row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.search__input {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 12px;
+}
+
+.search__input:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.search__button {
+  padding: 10px 12px;
+}
