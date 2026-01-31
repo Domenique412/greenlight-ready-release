@@ -2,6 +2,8 @@
 import "./Main.css";
 import SearchForm from "../SearchForm/SearchForm.jsx";
 import RepoList from "../RepoList/RepoList.jsx";
+import Preloader from "../Preloader/Preloader.jsx";
+import { UI_MESSAGES } from "../../utils/config.js";
 
 function Main({
   searchQuery,
@@ -10,6 +12,7 @@ function Main({
   repos,
   isLoading,
   errorMessage,
+  hasSearched,
 }) {
   return (
     <section className="main">
@@ -26,13 +29,19 @@ function Main({
           isLoading={isLoading}
         />
 
-        {errorMessage ? (
+        {isLoading ? (
+          <Preloader />
+        ) : errorMessage ? (
           <p className="main__message" role="alert">
             {errorMessage}
           </p>
-        ) : null}
-
-        <RepoList repos={repos} />
+        ) : repos.length === 0 && hasSearched ? (
+          <p className="main__message" role="status">
+            {UI_MESSAGES.noRepos}
+          </p>
+        ) : (
+          <RepoList repos={repos} />
+        )}
       </div>
     </section>
   );

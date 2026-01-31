@@ -1,0 +1,30 @@
+.repo-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.repo-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.repo-card__title {
+  margin: 0;
+  font-size: 18px;
+}
+
+.repo-card__meta {
+  margin: 10px 0 0;
+  font-size: 14px;
+}
+
+.repo-card__links {
+  margin-top: 12px;
+}
+
+.repo-card__link {
+  text-decoration: underline;
+}

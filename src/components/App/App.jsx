@@ -1,6 +1,12 @@
-// src/components/App/App.jsx
 import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
+import { ENDPOINTS } from "../../utils/config.js";
+import {
+  fetchUserRepos,
+  getUserFacingError,
+  fetchLatestWorkflowRun,
+  mapRunToStatus,
+} from "../../utils/githubApi.js";
 import "./App.css";
 
 import Header from "../Header/Header.jsx";
@@ -13,6 +19,7 @@ function App() {
   const [repos, setRepos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
 
   function handleSearchQueryChange(evt) {
     setSearchQuery(evt.target.value);
@@ -20,11 +27,63 @@ function App() {
 
   function handleSearchSubmit(evt) {
     evt.preventDefault();
-    setErrorMessage("");
-    // Next step: call GitHub API here
-    // For now, just keep the UI wired up
-  }
 
+    const trimmedQuery = searchQuery.trim();
+
+    setErrorMessage("");
+    setRepos([]);
+
+    if (!trimmedQuery) {
+      setErrorMessage("Please enter a GitHub username or organization.");
+      return;
+    }
+    setHasSearched(true);
+    setIsLoading(true);
+
+    fetchUserRepos(ENDPOINTS.userRepos(trimmedQuery))
+      .then((data) => {
+        const limitedRepos = data.slice(0, 10);
+
+        const statusPromises = limitedRepos.map((repo) =>
+          fetchLatestWorkflowRun(
+            ENDPOINTS.latestWorkflowRun(repo.owner.login, repo.name),
+          )
+            .then((runsData) => {
+              const latestRun =
+                runsData.workflow_runs && runsData.workflow_runs[0];
+              return {
+                id: repo.id,
+                status: mapRunToStatus(latestRun),
+                runUrl: latestRun ? latestRun.html_url : "",
+              };
+            })
+            .catch(() => {
+              // If workflows are disabled or inaccessible, keep it unknown
+              return { id: repo.id, status: "unknown", runUrl: "" };
+            }),
+        );
+
+        return Promise.all(statusPromises).then((statuses) => {
+          const statusMap = new Map(statuses.map((s) => [s.id, s]));
+          const enriched = limitedRepos.map((repo) => {
+            const s = statusMap.get(repo.id);
+            return {
+              ...repo,
+              readinessStatus: s ? s.status : "unknown",
+              latestRunUrl: s ? s.runUrl : "",
+            };
+          });
+
+          setRepos(enriched);
+        });
+      })
+      .catch((err) => {
+        setErrorMessage(getUserFacingError(err));
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }
   return (
     <div className="app">
       <Header />
