@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 import Navigation from "../Navigation/Navigation.jsx";
 import "./Header.css";
 
-function Header() {
+function Header({ onSignInClick }) {
   return (
     <header className="header">
       <div className="header__container">
         <Link className="header__logo" to="/">
           GRR
         </Link>
-        <Navigation />
+        <Navigation onSignInClick={onSignInClick} />
       </div>
     </header>
   );

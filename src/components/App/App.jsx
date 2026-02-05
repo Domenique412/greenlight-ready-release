@@ -13,6 +13,8 @@ import Header from "../Header/Header.jsx";
 import Main from "../Main/Main.jsx";
 import Footer from "../Footer/Footer.jsx";
 import About from "../About/About.jsx";
+import LoginModal from "../LoginModal/LoginModal.jsx";
+import RegisterModal from "../RegisterModal/RegisterModal.jsx";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -20,6 +22,23 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+
+  function openLogin() {
+    setIsRegisterOpen(false);
+    setIsLoginOpen(true);
+  }
+
+  function openRegister() {
+    setIsLoginOpen(false);
+    setIsRegisterOpen(true);
+  }
+
+  function closeAllModals() {
+    setIsLoginOpen(false);
+    setIsRegisterOpen(false);
+  }
 
   function handleSearchQueryChange(evt) {
     setSearchQuery(evt.target.value);
@@ -58,7 +77,6 @@ function App() {
               };
             })
             .catch(() => {
-              // If workflows are disabled or inaccessible, keep it unknown
               return { id: repo.id, status: "unknown", runUrl: "" };
             }),
         );
@@ -86,7 +104,7 @@ function App() {
   }
   return (
     <div className="app">
-      <Header />
+      <Header onSignInClick={openLogin} />
 
       <main className="app__content">
         <Routes>
@@ -106,7 +124,16 @@ function App() {
           <Route path="/about" element={<About />} />
         </Routes>
       </main>
-
+      <LoginModal
+        isOpen={isLoginOpen}
+        onClose={closeAllModals}
+        onSwitch={openRegister}
+      />
+      <RegisterModal
+        isOpen={isRegisterOpen}
+        onClose={closeAllModals}
+        onSwitch={openLogin}
+      />
       <Footer />
     </div>
   );

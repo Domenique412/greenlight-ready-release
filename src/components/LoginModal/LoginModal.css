@@ -1,0 +1,30 @@
+.auth {
+  display: grid;
+  gap: 10px;
+}
+
+.auth__label {
+  font-size: 14px;
+}
+
+.auth__input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.auth__input:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.auth__submit {
+  margin-top: 6px;
+  padding: 10px 12px;
+}
+
+.auth__switch {
+  padding: 10px 12px;
+  background: transparent;
+  border: 1px solid #ccc;
+}

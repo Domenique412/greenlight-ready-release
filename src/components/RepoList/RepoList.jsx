@@ -1,4 +1,3 @@
-// src/components/RepoList/RepoList.jsx
 import "./RepoList.css";
 import RepoCard from "../RepoCard/RepoCard.jsx";
 
