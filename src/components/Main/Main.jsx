@@ -12,7 +12,6 @@ function Main({
   repos,
   isLoading,
   errorMessage,
-  hasSearched,
 }) {
   return (
     <section className="main">
@@ -35,7 +34,7 @@ function Main({
           <p className="main__message" role="alert">
             {errorMessage}
           </p>
-        ) : repos.length === 0 && hasSearched ? (
+        ) : repos.length === 0 ? (
           <p className="main__message" role="status">
             {UI_MESSAGES.noRepos}
           </p>

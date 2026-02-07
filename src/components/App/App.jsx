@@ -21,7 +21,6 @@ function App() {
   const [repos, setRepos] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [hasSearched, setHasSearched] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
@@ -56,7 +55,7 @@ function App() {
       setErrorMessage("Please enter a GitHub username or organization.");
       return;
     }
-    setHasSearched(true);
+
     setIsLoading(true);
 
     fetchUserRepos(ENDPOINTS.userRepos(trimmedQuery))

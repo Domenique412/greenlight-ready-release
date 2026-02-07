@@ -6,4 +6,9 @@
 
 .app__content {
   flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px;
+  box-sizing: border-box;
 }
