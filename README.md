@@ -1,16 +1,32 @@
-# React + Vite
+# Greenlight Ready Release (GRR)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Greenlight Ready Release (GRR) is a lightweight release readiness dashboard for GitHub repositories. It helps developers quickly check whether a repository looks “ready to ship” by summarizing key repository signals in a clean, readable UI.
 
-Currently, two official plugins are available:
+This project was built as a custom React project for TripleTen and is designed to be practical, scalable, and portfolio ready for future DevSecOps work.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What GRR does
 
-## React Compiler
+- Search any GitHub username or organization and list public repositories
+- Display repositories as reusable cards with clear, readable metadata
+- Show loading state (preloader) while requests are in progress
+- Show user friendly error and empty states (invalid user, no repos, rate limit, etc.)
+- Includes authentication modals (UI behavior: open, close, switch between sign in and sign up)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Why this is useful
 
-## Expanding the ESLint configuration
+Developers and teams often need a quick way to review repository health before shipping changes. GRR centralizes the first “sanity check” signals into one place, reducing the time spent clicking through multiple GitHub pages.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech stack
+
+- React
+- Vite
+- React Router
+- Fetch API
+- CSS with BEM naming
+- GitHub REST API
+- GitHub Pages deployment
+
+## Live demo
+
+GitHub Pages URL:
+[https://domenique412.github.io/greenlight-ready-release/]
