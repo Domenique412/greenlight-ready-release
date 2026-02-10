@@ -12,11 +12,14 @@ function Main({
   repos,
   isLoading,
   errorMessage,
+  hasSearched,
 }) {
   return (
     <section className="main">
       <div className="main__container">
-        <h1 className="main__title">Welcome to GRR</h1>
+        <h1 className="main__title">
+          Welcome to <span className="main__title-logo">GRR</span>
+        </h1>
         <p className="main__subtitle">
           Search a GitHub username or organization to view repository readiness.
         </p>
@@ -34,7 +37,7 @@ function Main({
           <p className="main__message" role="alert">
             {errorMessage}
           </p>
-        ) : repos.length === 0 ? (
+        ) : hasSearched && repos.length === 0 ? (
           <p className="main__message" role="status">
             {UI_MESSAGES.noRepos}
           </p>

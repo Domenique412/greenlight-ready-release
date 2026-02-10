@@ -1,11 +1,12 @@
-// src/components/About/About.jsx
 import "./About.css";
 
 function About() {
   return (
     <section className="about">
       <div className="about__container">
-        <h1 className="about__title">About GRR</h1>
+        <h1 className="about__title">
+          About <span className="about__title-logo">GRR</span>
+        </h1>
         <p className="about__text">
           Greenlight Ready Release helps you quickly see whether a GitHub
           repository is ready to ship by summarizing key workflow signals in one

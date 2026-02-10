@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ENDPOINTS } from "../../utils/config.js";
 import {
   fetchUserRepos,
@@ -23,6 +23,23 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
+
+  useEffect(() => {
+    if (!isLoginOpen && !isRegisterOpen) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [isLoginOpen, isRegisterOpen]);
 
   function openLogin() {
     setIsRegisterOpen(false);
@@ -34,7 +51,7 @@ function App() {
     setIsRegisterOpen(true);
   }
 
-  function closeAllModals() {
+  function closeModal() {
     setIsLoginOpen(false);
     setIsRegisterOpen(false);
   }
@@ -48,6 +65,7 @@ function App() {
 
     const trimmedQuery = searchQuery.trim();
 
+    setHasSearched(true);
     setErrorMessage("");
     setRepos([]);
 
@@ -103,7 +121,7 @@ function App() {
   }
   return (
     <div className="app">
-      <Header onSignInClick={openLogin} />
+      <Header onLogInClick={openLogin} onSignUpClick={openRegister} />
 
       <main className="app__content">
         <Routes>
@@ -117,6 +135,7 @@ function App() {
                 repos={repos}
                 isLoading={isLoading}
                 errorMessage={errorMessage}
+                hasSearched={hasSearched}
               />
             }
           />
@@ -125,12 +144,12 @@ function App() {
       </main>
       <LoginModal
         isOpen={isLoginOpen}
-        onClose={closeAllModals}
+        onClose={closeModal}
         onSwitch={openRegister}
       />
       <RegisterModal
         isOpen={isRegisterOpen}
-        onClose={closeAllModals}
+        onClose={closeModal}
         onSwitch={openLogin}
       />
       <Footer />

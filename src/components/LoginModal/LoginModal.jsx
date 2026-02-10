@@ -1,38 +1,44 @@
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./LoginModal.css";
 
-function LoginModal({ isOpen, onClose, onSwitch }) {
+function LoginModal({ isOpen, onClose, onSwitch, contentClassName }) {
   return (
-    <ModalWithForm title="Sign in" isOpen={isOpen} onClose={onClose}>
-      <form className="auth" noValidate>
-        <label className="auth__label" htmlFor="loginEmail">
+    <ModalWithForm
+      title="Log in"
+      isOpen={isOpen}
+      onClose={onClose}
+      onSubmit={onClose}
+      contentClassName="login-modal"
+    >
+      <div className="login__modal">
+        <label className="modal__label" htmlFor="loginEmail">
           Email
         </label>
         <input
-          className="auth__input"
+          className="modal__input"
           type="email"
           placeholder="Email"
           id="loginEmail"
           required
         />
-        <label className="auth__label" htmlFor="loginPassword">
+        <label className="modal__label" htmlFor="loginPassword">
           Password
         </label>
         <input
-          className="auth__input"
+          className="modal__input"
           type="password"
           placeholder="Password"
           id="loginPassword"
           required
         />
-        <button className="auth__submit" type="submit">
+        <button className="modal__submit" type="submit">
           {" "}
-          Sign in
+          Log in
         </button>
-        <button className="auth__switch" type="button" onClick={onSwitch}>
+        <button className="modal__switch" type="button" onClick={onSwitch}>
           Need an account? Sign up
         </button>
-      </form>
+      </div>
     </ModalWithForm>
   );
 }

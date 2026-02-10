@@ -1,5 +1,44 @@
 .navigation {
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   align-items: center;
+  padding: 24px 16px;
+}
+
+.navigation__logo {
+  font-family: "New-Rocker", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 30px;
+  letter-spacing: 0;
+  color: lawngreen;
+  margin-right: 24px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.navigation__logo:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+.navigation__controls {
+  display: flex;
+  align-items: center;
+  margin: 0 20px 0 auto;
+}
+
+.navigation__button {
+  padding: 0 20px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0;
+  border: none;
+  background-color: transparent;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.navigation__button:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }

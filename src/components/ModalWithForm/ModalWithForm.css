@@ -1,30 +1,58 @@
-.auth {
-  display: grid;
-  gap: 10px;
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fafafa6d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
 }
 
-.auth__label {
-  font-size: 14px;
+.modal__open {
+  visibility: visible;
 }
 
-.auth__input {
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+.modal__close {
+  top: 20px;
+  right: 28px;
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-.auth__input:focus {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
+.modal__title {
+  text-align: center;
 }
 
-.auth__submit {
-  margin-top: 6px;
-  padding: 10px 12px;
+.modal__container {
+  background-color: rgb(27, 27, 27);
+  position: relative;
+  padding: 28px 28px 36px;
+  max-width: 496px;
+  width: 100%;
+  border-radius: 20px;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
 }
 
-.auth__switch {
-  padding: 10px 12px;
-  background: transparent;
-  border: 1px solid #ccc;
-}
+background-color: white;
+position: relative;
+padding: 28px 28px 36px;
+max-width: 496px;
+width: 100%;
+border-radius: 20px;
+box-sizing: border-box;
+font-family: "Cabinet Grotesk Medium", Arial, Helvetica, sans-serif;
+font-weight: 500;
+font-size: 16px;
+line-height: 20px;
+letter-spacing: 0;

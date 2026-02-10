@@ -8,6 +8,12 @@
   margin: 0 0 12px;
 }
 
+.about__title-logo {
+  font-family: "New-Rocker", Arial, Helvetica, sans-serif;
+  letter-spacing: 0;
+  color: lawngreen;
+}
+
 .about__text {
   margin: 0 0 12px;
 }

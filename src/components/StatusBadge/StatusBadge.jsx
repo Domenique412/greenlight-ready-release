@@ -10,7 +10,9 @@ function StatusBadge({ status }) {
           ? "Running"
           : "Unknown";
 
-  return <span className={`status-badge status-badge_${status}`}>{label}</span>;
+  return (
+    <span className={`status__badge status__badge_${status}`}>{label}</span>
+  );
 }
 
 export default StatusBadge;

@@ -11,3 +11,10 @@
   font-weight: 700;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "New-Rocker";
+  src: url("../fonts/NewRocker-Regular.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}

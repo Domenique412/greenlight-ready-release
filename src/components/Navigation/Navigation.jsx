@@ -1,22 +1,28 @@
 import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 
-function Navigation({ onSignInClick }) {
+function Navigation({ onLogInClick, onSignUpClick }) {
   return (
     <nav className="navigation">
-      <NavLink className="navigation__link" to="/">
-        Home
+      <NavLink className="navigation__logo" to="/">
+        GRR
       </NavLink>
-      <NavLink className="navigation__link" to="/about">
-        About
-      </NavLink>
-      <button
-        className="navigation__button"
-        type="button"
-        onClick={onSignInClick}
-      >
-        Sign in
-      </button>
+      <div className="navigation__controls">
+        <button
+          className="navigation__button"
+          type="button"
+          onClick={onSignUpClick}
+        >
+          Sign up
+        </button>
+        <button
+          className="navigation__button"
+          type="button"
+          onClick={onLogInClick}
+        >
+          Log in
+        </button>
+      </div>
     </nav>
   );
 }

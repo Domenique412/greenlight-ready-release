@@ -1,12 +1,17 @@
-/* src/components/Main/Main.css */
 .main__container {
   max-width: 960px;
   margin: 0 auto;
   padding: 24px 16px;
+  text-align: center;
 }
 
 .main__title {
   margin: 0 0 8px;
+}
+.main__title-logo {
+  font-family: "New-Rocker", Arial, Helvetica, sans-serif;
+  letter-spacing: 0;
+  color: lawngreen;
 }
 
 .main__subtitle {

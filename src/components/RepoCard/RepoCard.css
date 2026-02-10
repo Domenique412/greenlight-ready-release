@@ -2,6 +2,9 @@
   border: 1px solid #ddd;
   border-radius: 12px;
   padding: 14px;
+  max-width: 250px;
+  height: 150px;
+  width: 100%;
 }
 
 .repo-card__header {
@@ -13,7 +16,11 @@
 
 .repo-card__title {
   margin: 0;
-  font-size: 18px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
 }
 
 .repo-card__meta {
@@ -23,8 +30,23 @@
 
 .repo-card__links {
   margin-top: 12px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .repo-card__link {
-  text-decoration: underline;
+  text-decoration: none;
+  color: #fff;
+  align-items: center;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.repo-card__link:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
