@@ -51,7 +51,7 @@ export function fetchLatestWorkflowRun(url) {
 export function mapRunToStatus(run) {
     if (!run) return "unknown";
 
-    // GitHub Actions: status can be queued/in_progress/completed
+
     if (run.status === "in_progress" || run.status === "queued") return "yellow";
 
     if (run.status === "completed") {
