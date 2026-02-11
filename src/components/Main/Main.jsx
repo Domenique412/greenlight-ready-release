@@ -1,4 +1,3 @@
-// src/components/Main/Main.jsx
 import "./Main.css";
 import SearchForm from "../SearchForm/SearchForm.jsx";
 import RepoList from "../RepoList/RepoList.jsx";

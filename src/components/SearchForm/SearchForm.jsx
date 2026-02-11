@@ -1,4 +1,3 @@
-// src/components/SearchForm/SearchForm.jsx
 import "./SearchForm.css";
 
 function SearchForm({ value, onChange, onSubmit, isLoading }) {
