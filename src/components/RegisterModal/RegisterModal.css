@@ -1,0 +1,42 @@
+.register__modal {
+  display: grid;
+  gap: 10px;
+}
+
+.register-modal .modal__label {
+  font-size: 14px;
+}
+
+.register-modal .modal__input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.register-modal .modal__input:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.register-modal .modal__submit {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+}
+
+.register-modal .modal__submit:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.register-modal .modal__switch {
+  padding: 10px 12px;
+  background: transparent;
+  border: 1px solid #ccc;
+}
+
+.register-modal .modal__switch:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}

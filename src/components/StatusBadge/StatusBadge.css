@@ -1,0 +1,23 @@
+.status__badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid #ccc;
+}
+
+.status__badge_green {
+  border-color: lawngreen;
+}
+
+.status__badge_red {
+  border-color: #c62828;
+}
+
+.status__badge_yellow {
+  border-color: #ef6c00;
+}
+
+.status__badge_unknown {
+  border-color: #666;
+}

@@ -1,0 +1,43 @@
+.search {
+  margin: 0 0 16px;
+}
+
+.search__label {
+  display: block;
+  margin: 0 0 8px;
+}
+
+.search__row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.search__input {
+  flex: 1;
+  min-width: 220px;
+  padding: 10px 12px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.search__input:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  cursor: pointer;
+}
+
+.search__button {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  border: none;
+  background-color: transparent;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.search__button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}

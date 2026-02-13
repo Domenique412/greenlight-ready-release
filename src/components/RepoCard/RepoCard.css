@@ -1,0 +1,52 @@
+.repo-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 14px;
+  max-width: 250px;
+  height: 150px;
+  width: 100%;
+}
+
+.repo-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.repo-card__title {
+  margin: 0;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.repo-card__meta {
+  margin: 10px 0 0;
+  font-size: 14px;
+}
+
+.repo-card__links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.repo-card__link {
+  text-decoration: none;
+  color: #fff;
+  align-items: center;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.repo-card__link:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
